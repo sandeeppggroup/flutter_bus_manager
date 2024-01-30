@@ -41,7 +41,9 @@ class DriverListScreen extends StatelessWidget {
             child: CustomButtons(
                 label: 'Add Driver',
                 labelColor: Colors.white,
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(context, '/add_driver_screen');
+                },
                 buttonColor: mainColorLight),
           ),
         ],

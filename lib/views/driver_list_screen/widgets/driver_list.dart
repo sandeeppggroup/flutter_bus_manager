@@ -30,9 +30,7 @@ class DriverListWidget extends StatelessWidget {
                 borderRadius: BorderRadius.circular(5),
               ),
             ),
-            onPressed: () {
-              Navigator.pushNamed(context, '/seat_layout_first');
-            },
+            onPressed: () {},
             child: const Text(
               'Delete',
               style: TextStyle(color: Colors.white, fontSize: 10),

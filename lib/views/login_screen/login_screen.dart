@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bus_manager/controller/login_provider.dart';
+import 'package:flutter_bus_manager/controller/login/provider/login_provider.dart';
 import 'package:flutter_bus_manager/core/colors/colors.dart';
 import 'package:flutter_bus_manager/views/login_screen/widgets/welcome_widget.dart';
 import 'package:flutter_bus_manager/views/widgets/custom_buttons.dart';
@@ -11,7 +11,8 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    LoginProvider loginProvider = Provider.of<LoginProvider>(context);
+    LoginProvider loginProvider =
+        Provider.of<LoginProvider>(context, listen: false);
     double height = MediaQuery.of(context).size.height;
     return Scaffold(
       body: Column(

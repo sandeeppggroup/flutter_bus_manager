@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bus_manager/controller/login_provider.dart';
-import 'package:flutter_bus_manager/views/add_driver_screen/add_drever_screen.dart';
+import 'package:flutter_bus_manager/controller/driver_list/provider/driver_list_provider.dart';
+import 'package:flutter_bus_manager/controller/login/provider/login_provider.dart';
+import 'package:flutter_bus_manager/views/add_driver_screen/add_driver_screen.dart';
 import 'package:flutter_bus_manager/views/bus_list_screen/bus_list_screen.dart';
 import 'package:flutter_bus_manager/views/driver_list_screen/driver_list_screen.dart';
 import 'package:flutter_bus_manager/views/login_screen/login_screen.dart';
@@ -22,6 +23,7 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (context) => LoginProvider()),
+        ChangeNotifierProvider(create: (context) => DriverProvider()),
       ],
       child: MaterialApp(
         title: 'Flutter Demo',
