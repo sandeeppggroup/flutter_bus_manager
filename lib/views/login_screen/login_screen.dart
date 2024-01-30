@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bus_manager/controller/login_provider.dart';
 import 'package:flutter_bus_manager/core/colors/colors.dart';
-import 'package:flutter_bus_manager/views/login_screen/widget/welcome_widget.dart';
-import 'package:flutter_bus_manager/widget/custom_buttons.dart';
-import 'package:flutter_bus_manager/widget/custom_text_field.dart';
+import 'package:flutter_bus_manager/views/login_screen/widgets/welcome_widget.dart';
+import 'package:flutter_bus_manager/views/widgets/custom_buttons.dart';
+import 'package:flutter_bus_manager/views/widgets/custom_text_field.dart';
 import 'package:provider/provider.dart';
 
 class LoginScreen extends StatelessWidget {

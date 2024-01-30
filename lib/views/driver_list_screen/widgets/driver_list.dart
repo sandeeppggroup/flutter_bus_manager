@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bus_manager/core/colors/colors.dart';
 
-class CardListTile extends StatelessWidget {
-  const CardListTile({super.key});
+class DriverListWidget extends StatelessWidget {
+  const DriverListWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -13,13 +13,13 @@ class CardListTile extends StatelessWidget {
           width: 70, // Adjust the width as needed
           child: SizedBox(
             height: height * 0.1,
-            child: Image.asset('assets/images/bus_scania.png'),
+            child: Image.asset('assets/images/driver.png'),
           ),
         ),
-        title: const Text('KSRTC',
+        title: const Text('Rohit sharma',
             style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500)),
-        subtitle:
-            const Text('Swift Scania P-series', style: TextStyle(fontSize: 12)),
+        subtitle: const Text('Licn no: JI533JN62464465',
+            style: TextStyle(fontSize: 12)),
         trailing: SizedBox(
           height: 35,
           width: 85,
@@ -34,7 +34,7 @@ class CardListTile extends StatelessWidget {
               Navigator.pushNamed(context, '/seat_layout_first');
             },
             child: const Text(
-              'Manage',
+              'Delete',
               style: TextStyle(color: Colors.white, fontSize: 10),
             ),
           ),

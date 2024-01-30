@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bus_manager/core/colors/colors.dart';
-import 'package:flutter_bus_manager/widget/custom_buttons.dart';
-import 'package:flutter_bus_manager/widget/company_logo.dart';
+import 'package:flutter_bus_manager/views/widgets/custom_buttons.dart';
+import 'package:flutter_bus_manager/views/widgets/company_logo.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});

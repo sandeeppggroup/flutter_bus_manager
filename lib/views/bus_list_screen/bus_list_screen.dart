@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bus_manager/core/colors/colors.dart';
 import 'package:flutter_bus_manager/views/bus_list_screen/widgets/bus_driver_container.dart';
 import 'package:flutter_bus_manager/views/bus_list_screen/widgets/card_list_tile.dart';
-import 'package:flutter_bus_manager/widget/company_logo.dart';
-import 'package:flutter_bus_manager/widget/custom_appbar.dart';
+import 'package:flutter_bus_manager/views/widgets/company_logo.dart';
+import 'package:flutter_bus_manager/views/widgets/custom_appbar.dart';
 
 class BusListScreen extends StatelessWidget {
   const BusListScreen({super.key});
@@ -29,6 +29,9 @@ class BusListScreen extends StatelessWidget {
                 discription: 'Manage your Bus',
                 image: Image.asset('assets/images/bus.png'),
                 backgroundColor: mainColorLight,
+                onPressed: () {
+                  Navigator.pushNamed(context, '/seat_layout_second');
+                },
               ),
               SizedBox(
                 width: width * 0.05,
@@ -38,6 +41,9 @@ class BusListScreen extends StatelessWidget {
                 discription: 'Manage your Driver',
                 image: Image.asset('assets/images/driver1.png'),
                 backgroundColor: mainColorDark,
+                onPressed: () {
+                  Navigator.pushNamed(context, '/driver_list_screen');
+                },
               ),
               const Spacer()
             ],
