@@ -17,6 +17,7 @@ class BusListScreen extends StatelessWidget {
     Provider.of<DriverProvider>(context, listen: false).getDriverList();
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
+
     return Scaffold(
       body: Column(
         children: [
@@ -51,11 +52,13 @@ class BusListScreen extends StatelessWidget {
               const Spacer()
             ],
           ),
-          const Padding(
+          Padding(
             padding: EdgeInsets.only(left: 28, top: 20),
             child: Row(
               children: [
-                Text('21 Buses Found'),
+                Consumer<BusListProvider>(builder: (context, value, child) {
+                  return Text('${value.busList.length} Buses Found');
+                }),
               ],
             ),
           ),

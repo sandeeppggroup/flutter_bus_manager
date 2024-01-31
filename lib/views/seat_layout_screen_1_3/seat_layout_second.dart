@@ -95,7 +95,7 @@ class SeatLayoutSecond extends StatelessWidget {
                     Row(
                       children: [
                         Padding(
-                          padding: const EdgeInsets.only(left: 253.0),
+                          padding: const EdgeInsets.only(left: 240.0),
                           child: Container(
                             height: 40,
                             width: 45,
@@ -160,7 +160,7 @@ class SeatLayoutSecond extends StatelessWidget {
           final seatNumber = startingSeat + seatIndex;
           return Container(
             height: 40,
-            width: 45,
+            width: 40,
             margin: const EdgeInsets.all(4),
             child: UShapedContainer(
               child: Center(

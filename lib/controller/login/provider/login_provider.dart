@@ -1,7 +1,6 @@
 // ignore_for_file: use_build_context_synchronously
 
 import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bus_manager/controller/login/service/login_service.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -42,7 +41,5 @@ class LoginProvider extends ChangeNotifier {
           toastLength: Toast.LENGTH_LONG,
           backgroundColor: Colors.blue);
     }
-    Navigator.pushNamedAndRemoveUntil(
-        context, '/bus_list_screen', (route) => false);
   }
 }
