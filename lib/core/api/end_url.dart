@@ -1,1 +1,3 @@
-String loginUser = 'LoginApi';
+class EndUrl {
+  String loginUser = 'LoginApi';
+}

@@ -15,34 +15,36 @@ class LoginScreen extends StatelessWidget {
         Provider.of<LoginProvider>(context, listen: false);
     double height = MediaQuery.of(context).size.height;
     return Scaffold(
-      body: Column(
-        children: [
-          const WelcomeWidget(),
-          SizedBox(
-            height: height * 0.05,
-          ),
-          CustomTextField(
-              controller: loginProvider.usernameController,
-              label: 'Enter Username'),
-          SizedBox(
-            height: height * 0.02,
-          ),
-          CustomTextField(
-              controller: loginProvider.passwordController,
-              label: 'Enter Password'),
-          SizedBox(
-            height: height * 0.33,
-          ),
-          CustomButtons(
-            label: 'Login',
-            onPressed: () {
-              Navigator.pushNamedAndRemoveUntil(
-                  context, '/bus_list_screen', (route) => false);
-            },
-            buttonColor: mainColorLight,
-            labelColor: Colors.white,
-          )
-        ],
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            const WelcomeWidget(),
+            SizedBox(
+              height: height * 0.05,
+            ),
+            CustomTextField(
+                controller: loginProvider.usernameController,
+                label: 'Enter Username'),
+            SizedBox(
+              height: height * 0.02,
+            ),
+            CustomTextField(
+                controller: loginProvider.passwordController,
+                label: 'Enter Password'),
+            SizedBox(
+              height: height * 0.33,
+            ),
+            CustomButtons(
+              label: 'Login',
+              onPressed: () {
+                Provider.of<LoginProvider>(context, listen: false)
+                    .userLogin(context);
+              },
+              buttonColor: mainColorLight,
+              labelColor: Colors.white,
+            )
+          ],
+        ),
       ),
     );
   }
