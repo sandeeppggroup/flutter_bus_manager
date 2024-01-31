@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bus_manager/controller/bus_list/provider/bus_list_provider.dart';
 import 'package:flutter_bus_manager/core/colors/colors.dart';
 import 'package:flutter_bus_manager/model/bus_model/bus_model.dart';
+import 'package:flutter_bus_manager/views/seat_layout_screen_1_3/seat_layout_second.dart';
+import 'package:flutter_bus_manager/views/seat_layout_screen_2_2/seat_layout_first.dart';
 import 'package:provider/provider.dart';
 
 class CardListTile extends StatelessWidget {
@@ -18,7 +20,6 @@ class CardListTile extends StatelessWidget {
           itemCount: busList.length,
           itemBuilder: (context, index) {
             BusModel bus = busList[index];
-            int id = bus.id;
 
             return Card(
               child: ListTile(
@@ -44,10 +45,23 @@ class CardListTile extends StatelessWidget {
                       ),
                     ),
                     onPressed: () {
+                      String busName = bus.name;
                       if (bus.type == 'AC') {
-                        Navigator.pushNamed(context, '/seat_layout_first');
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                SeatLayoutFirst(busName: busName),
+                          ),
+                        );
                       } else {
-                        Navigator.pushNamed(context, '/seat_layout_second');
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                SeatLayoutSecond(busName: busName),
+                          ),
+                        );
                       }
                     },
                     child: const Text(

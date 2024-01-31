@@ -36,7 +36,8 @@ class MyApp extends StatelessWidget {
           '/login_screen': (context) => const LoginScreen(),
           '/bus_list_screen': (context) => const BusListScreen(),
           '/seat_layout_first': (context) => const SeatLayoutFirst(),
-          '/seat_layout_second': (context) => const SeatLayoutSecond(),
+          '/seat_layout_second': (context) =>
+              const SeatLayoutSecond(busName: ''),
           '/driver_list_screen': (context) => const DriverListScreen(),
           '/add_driver_screen': (context) => const AddDriverScreen(),
         },
