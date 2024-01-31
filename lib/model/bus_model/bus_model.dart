@@ -1,3 +1,5 @@
+import 'package:path/path.dart';
+
 class BusModel {
   final int id;
   final String image;

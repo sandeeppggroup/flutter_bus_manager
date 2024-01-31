@@ -59,15 +59,10 @@ class BusListScreen extends StatelessWidget {
               ],
             ),
           ),
-          Expanded(
+          const Expanded(
             child: Padding(
-              padding: const EdgeInsets.all(15.0),
-              child: ListView.builder(
-                itemCount: 10,
-                itemBuilder: (context, index) {
-                  return const CardListTile();
-                },
-              ),
+              padding: EdgeInsets.all(15.0),
+              child: CardListTile(),
             ),
           ),
         ],
