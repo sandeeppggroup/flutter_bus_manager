@@ -15,7 +15,7 @@ class BusListProvider extends ChangeNotifier {
     dynamic reslut = await busService.getBusList();
     if (reslut != null) {
       _busList = reslut;
-      log('BusList provider: ${_busList.toList().toString()}');
+      // log('BusList provider: ${_busList.toList().toString()}');
     } else {
       Fluttertoast.showToast(
         msg:

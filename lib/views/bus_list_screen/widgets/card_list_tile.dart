@@ -9,6 +9,7 @@ class CardListTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String baseUrlImage = 'https://flutter-api.noviindus.in';
     double height = MediaQuery.of(context).size.height;
     return Consumer<BusListProvider>(
       builder: (context, value, child) {
@@ -17,6 +18,7 @@ class CardListTile extends StatelessWidget {
           itemCount: busList.length,
           itemBuilder: (context, index) {
             BusModel bus = busList[index];
+            int id = bus.id;
 
             return Card(
               child: ListTile(
@@ -24,7 +26,7 @@ class CardListTile extends StatelessWidget {
                   width: 70, // Adjust the width as needed
                   child: SizedBox(
                     height: height * 0.1,
-                    child: Image.asset('assets/images/bus_scania.png'),
+                    child: Image.network(baseUrlImage + bus.image),
                   ),
                 ),
                 title: Text(bus.name,
@@ -42,7 +44,11 @@ class CardListTile extends StatelessWidget {
                       ),
                     ),
                     onPressed: () {
-                      Navigator.pushNamed(context, '/seat_layout_first');
+                      if (bus.type == 'AC') {
+                        Navigator.pushNamed(context, '/seat_layout_first');
+                      } else {
+                        Navigator.pushNamed(context, '/seat_layout_second');
+                      }
                     },
                     child: const Text(
                       'Manage',

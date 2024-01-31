@@ -11,6 +11,7 @@ class BusService {
   Dio dio = Dio();
 
   Future<List<BusModel>?> getBusList() async {
+    log('BusList Api full Url: $busListUrl');
     SharedPreferences prefs = await SharedPreferences.getInstance();
     final token = prefs.getString('token');
     log('Token: $token');
@@ -26,11 +27,11 @@ class BusService {
       log('response: ${response.statusCode}');
 
       if (response.statusCode == 200) {
-        log('success : ${response.data}');
+        // log('success : ${response.data}');
         List<dynamic> busJsonList = response.data['bus'];
         List<BusModel> busList =
             busJsonList.map((busItems) => BusModel.fromJson(busItems)).toList();
-        log('BusList in service: ${busList.toList().toString()}');
+        // log('BusList in service: ${busList.toList().toString()}');
         return busList;
       } else {
         return null;

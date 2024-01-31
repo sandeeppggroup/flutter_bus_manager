@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bus_manager/controller/bus_list/provider/bus_list_provider.dart';
+import 'package:flutter_bus_manager/controller/driver_list/provider/driver_list_provider.dart';
 import 'package:flutter_bus_manager/core/colors/colors.dart';
 import 'package:flutter_bus_manager/views/bus_list_screen/widgets/bus_driver_container.dart';
 import 'package:flutter_bus_manager/views/bus_list_screen/widgets/card_list_tile.dart';
@@ -13,6 +14,7 @@ class BusListScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Provider.of<BusListProvider>(context, listen: false).fetchBusList();
+    Provider.of<DriverProvider>(context, listen: false).getDriverList();
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
     return Scaffold(
@@ -32,9 +34,7 @@ class BusListScreen extends StatelessWidget {
                 discription: 'Manage your Bus',
                 image: Image.asset('assets/images/bus.png'),
                 backgroundColor: mainColorLight,
-                onPressed: () {
-                  Navigator.pushNamed(context, '/seat_layout_second');
-                },
+                onPressed: () {},
               ),
               SizedBox(
                 width: width * 0.05,
