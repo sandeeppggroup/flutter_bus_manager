@@ -40,7 +40,11 @@ class DriverListWidget extends StatelessWidget {
                       borderRadius: BorderRadius.circular(5),
                     ),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    String id = driver.id.toString();
+                    Provider.of<DriverProvider>(context, listen: false)
+                        .deleteDriverPopUp(context, id);
+                  },
                   child: const Text(
                     'Delete',
                     style: TextStyle(color: Colors.white, fontSize: 10),

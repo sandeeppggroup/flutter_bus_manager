@@ -11,11 +11,15 @@ class LoginService {
 
   Future<dynamic> userLoginService(String userName, String password) async {
     try {
-      Response response = await dio.post(loginUrl,
-          data: FormData.fromMap({
+      Response response = await dio.post(
+        loginUrl,
+        data: FormData.fromMap(
+          {
             "username": userName,
             "password": password,
-          }));
+          },
+        ),
+      );
       log("Response: ${response.statusCode}");
 
       if (response.statusCode == 200) {

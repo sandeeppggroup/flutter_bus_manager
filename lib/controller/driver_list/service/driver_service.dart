@@ -40,4 +40,64 @@ class DriverService {
       return null;
     }
   }
+
+  Future addDriver(String name, String mobile, String licenseNo) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    final token = prefs.getString('token');
+
+    try {
+      Response response = await dio.post(
+        driverApi,
+        options: Options(
+          headers: {'Authorization': 'Bearer $token'},
+        ),
+        data: FormData.fromMap(
+          {
+            "license_no": licenseNo,
+            "mobile": mobile,
+            "name": name,
+          },
+        ),
+      );
+
+      log("Status code : ${response.statusCode}");
+      if (response.statusCode == 200) {
+        log('Status : ${response.data['status']}');
+        return true;
+      } else {
+        return false;
+      }
+    } catch (e) {
+      log('Catch error : $e');
+      return false;
+    }
+  }
+
+  Future<bool> deleteDriverService(String id) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    final token = prefs.getString('token');
+
+    try {
+      Response response = await dio.delete(
+        driverApi,
+        options: Options(
+          headers: {'Authorization': 'Bearer $token'},
+        ),
+        data: FormData.fromMap(
+          {
+            "driver_id": id,
+          },
+        ),
+      );
+      log("Status code : ${response.statusCode}");
+      if (response.statusCode == 200) {
+        log('Status : ${response.data['status']}');
+        return true;
+      } else {
+        return false;
+      }
+    } catch (e) {
+      return false;
+    }
+  }
 }
