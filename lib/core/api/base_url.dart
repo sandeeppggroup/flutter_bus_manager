@@ -1,3 +1,3 @@
 class BaseUrl {
-  String baseUrl = 'http://flutter.noviindus.co.in/api/';
+  String baseUrl = 'https://flutter-api.noviindus.in/api/';
 }

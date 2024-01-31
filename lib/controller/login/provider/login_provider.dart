@@ -17,13 +17,13 @@ class LoginProvider extends ChangeNotifier {
         usernameController.text.trim(), passwordController.text.trim());
     log("result : ${result.toString()}");
     if (result['status'] == true) {
-      String token = result['access'];
-      String key = result['url_id'];
-      log('Token : $token, key : $key');
+      final token = result['access_token'];
+      // final key = result['url_id'];
+      // log('Token : $token, key : $key');
 
       SharedPreferences prefs = await SharedPreferences.getInstance();
       prefs.setString('token', token);
-      prefs.setString('key', key);
+      // prefs.setString('key', key);
       Fluttertoast.showToast(
           msg: 'Successfully logged in',
           toastLength: Toast.LENGTH_LONG,
@@ -34,13 +34,15 @@ class LoginProvider extends ChangeNotifier {
       Fluttertoast.showToast(
           msg: 'Wrong username or password',
           toastLength: Toast.LENGTH_LONG,
-          backgroundColor: Colors.pink);
+          backgroundColor: Colors.blue);
       return;
     } else {
       Fluttertoast.showToast(
-          msg: 'Something is wrong',
+          msg: 'Wrong username or password',
           toastLength: Toast.LENGTH_LONG,
-          backgroundColor: Colors.pink);
+          backgroundColor: Colors.blue);
     }
+    Navigator.pushNamedAndRemoveUntil(
+        context, '/bus_list_screen', (route) => false);
   }
 }

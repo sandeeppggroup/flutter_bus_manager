@@ -11,25 +11,16 @@ class LoginService {
 
   Future<dynamic> userLoginService(String userName, String password) async {
     try {
-      Response response = await dio.post(
-        loginUrl,
-        data: {
-          "username": userName,
-          "password": password,
-        },
-      );
+      Response response = await dio.post(loginUrl,
+          data: FormData.fromMap({
+            "username": userName,
+            "password": password,
+          }));
       log("Response: ${response.statusCode}");
 
       if (response.statusCode == 200) {
         // log('Login Data: ${response.data}');
         dynamic status = response.data;
-        // String token = response.data['access'];
-        // String key = response.data['url_id'];
-        // log('Token : $token, key : $key');
-        // log('Status : $status');
-        // SharedPreferences prefs = await SharedPreferences.getInstance();
-        // prefs.setString('token', token);
-        // prefs.setString('key', key);
         return status;
       } else {
         log('Login Data erron: ${response.data}');

@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bus_manager/controller/bus_list/provider/bus_list_provider.dart';
 import 'package:flutter_bus_manager/core/colors/colors.dart';
 import 'package:flutter_bus_manager/views/bus_list_screen/widgets/bus_driver_container.dart';
 import 'package:flutter_bus_manager/views/bus_list_screen/widgets/card_list_tile.dart';
 import 'package:flutter_bus_manager/views/widgets/company_logo.dart';
 import 'package:flutter_bus_manager/views/widgets/custom_appbar.dart';
+import 'package:provider/provider.dart';
 
 class BusListScreen extends StatelessWidget {
   const BusListScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    Provider.of<BusListProvider>(context, listen: false).fetchBusList();
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
     return Scaffold(
